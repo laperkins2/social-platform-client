@@ -18,9 +18,14 @@ export function Page() {
   const { data: posts } = useQuery('posts', fetchPosts);
   const { mutate } = useMutation(createPost);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    await mutate({ title, content });
+
+    if (!title || !content) {
+      alert('Title and content are required');
+      return;
+    }
+    mutate({ title, content });
   };
 
   return (
