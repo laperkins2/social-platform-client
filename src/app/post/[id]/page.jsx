@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/router';
 import { useQuery, useMutation } from '@tanstack/react-query';
-import supabaseInstance from '../../../utils/supabaseInstance';
+import supabaseInstance from '../utils/supabaseInstance';
 
 const fetchPost = async (id) => {
   const response = await supabaseInstance.get(`/posts/${id}`);
