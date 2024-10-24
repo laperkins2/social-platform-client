@@ -23,6 +23,11 @@ export default function PostDetails() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!e.target.comment.value) {
+      alert('Comment is required');
+      return;
+    }
     mutation.mutate({ postId: id, content: e.target.comment.value });
     e.target.reset();
   };
